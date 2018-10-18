@@ -1,0 +1,29 @@
+{
+  "name": "react-redux-shopping-list",
+  "version": "1.0.0",
+  "description": "Full Stack application using React, Redux and Express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "keywords": [
+    "full-stack",
+    "react",
+    "redux",
+    "express",
+    "shopping-list"
+  ],
+  "author": "Manuel F. Del Toro",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
