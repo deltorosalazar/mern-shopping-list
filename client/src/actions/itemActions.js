@@ -6,8 +6,16 @@ export const getItems = () => {
   }
 }
 
-export const addItem = (payload) => {
+export const deleteItem = (id) => {
   return {
-    type: ADD_ITEM
+    type: DELETE_ITEM,
+    payload: id
+  }
+}
+
+export const addItem = (item) => {
+  return {
+    type: ADD_ITEM,
+    payload: item
   }
 }
