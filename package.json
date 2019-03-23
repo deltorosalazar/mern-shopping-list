@@ -4,11 +4,11 @@
   "description": "Full Stack application using React, Redux and Express",
   "main": "server.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
+    "client-install": "yarn install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "client": "yarn start --prefix client",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
   "keywords": [
     "full-stack",
@@ -20,12 +20,14 @@
   "author": "Manuel F. Del Toro",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "concurrently": "^4.0.1",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.0",
+    "config": "^3.0.1",
     "express": "^4.16.4",
-    "mongoose": "^5.3.4"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.19"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.10"
   }
 }
