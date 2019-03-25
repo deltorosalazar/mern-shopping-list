@@ -11,8 +11,7 @@ import {
 } from './types'
 import { returnErrors  } from './errorActions'
 
-export const register = ({ name, email, password }) => dispatch => {
-  
+export const register = ({ name, email, password }) => dispatch => {  
   const config = {
     headers: {
       'Content-Type': 'application/json'
@@ -22,21 +21,43 @@ export const register = ({ name, email, password }) => dispatch => {
   const body = JSON.stringify({ name, email, password })
 
   axios.post('api/users/register', body, config)
-    .then(res => {
-      debugger
+    .then(res => {    
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data
       })
     })
-    .catch(error => {
-      debugger
-      dispatch(returnErrors(error.response.data, error.response.status, 'REGISTER_FAIL'))
-      debugger
+    .catch(error => {      
+      dispatch(returnErrors(error.response.data, error.response.status, 'REGISTER_FAIL'))      
       dispatch({
         type: REGISTER_FAIL
       })
     })
+}
+
+export const login = ({ email, password }) => (dispatch) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  const body = JSON.stringify({ email, password })
+
+  axios.post('api/auth', body, config)
+    .then(res => {    
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data
+      })
+    })
+    .catch(error => {      
+      dispatch(returnErrors(error.response.data, error.response.status, 'LOGIN_FAIL'))
+      dispatch({
+        type: LOGIN_FAIL
+      })
+    })
+
 }
 
 export const logout = () => {
@@ -66,7 +87,7 @@ export const tokenConfig = (getState) => {
 
   const config = {
     headers: {
-      'Content-Type': 'appplication/json',      
+      'Content-Type': 'application/json',      
     }
   }
 

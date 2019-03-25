@@ -22,6 +22,7 @@ export default function(state = initialState, action) {
 
 
     case ADD_ITEM:
+    debugger
       return {
         ...state,
         items: [action.payload, ...state.items]

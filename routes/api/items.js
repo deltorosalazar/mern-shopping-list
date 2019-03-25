@@ -17,8 +17,9 @@ router.post('/', auth, (req, res) => {
     name: req.body.name
   })
 
+
   newItem.save()
-    .then(response => res.json(response))
+    .then(item => res.json(item))
 })
 
 router.delete('/:id', auth, (req, res) => {
