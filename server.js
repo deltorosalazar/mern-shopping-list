@@ -5,7 +5,7 @@ const config = require('config')
 
 app.use(express.json())
 
-const db = config.mongoURI
+const db = config.get('mongoURI')
 
 mongoose.connect(db, {
     useNewUrlParser: true,
@@ -22,5 +22,6 @@ const port = process.env.PORT || 5432
 
 app.use('/api/items', require('./routes/api/items'))
 app.use('/api/users', require('./routes/api/users'))
+app.use('/api/auth', require('./routes/api/auth'))
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
