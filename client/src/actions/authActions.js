@@ -11,6 +11,40 @@ import {
 } from './types'
 import { returnErrors  } from './errorActions'
 
+export const register = ({ name, email, password }) => dispatch => {
+  
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  const body = JSON.stringify({ name, email, password })
+
+  axios.post('api/users/register', body, config)
+    .then(res => {
+      debugger
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: res.data
+      })
+    })
+    .catch(error => {
+      debugger
+      dispatch(returnErrors(error.response.data, error.response.status, 'REGISTER_FAIL'))
+      debugger
+      dispatch({
+        type: REGISTER_FAIL
+      })
+    })
+}
+
+export const logout = () => {
+  return {
+    type: LOGOUT_SUCCESS
+  }
+}
+
 export const loadUser = () => (dispatch, getState) => {
   dispatch({ type: USER_LOADING })
 
